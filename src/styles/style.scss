@@ -1,0 +1,273 @@
+$color-white: white;
+$color-gray: #aaa;
+$color-red: #ff5f52;
+$color-yellow: #fff263;
+$color-orange-yellow: #c49000;
+$color-red-2: #b00020;
+$font-family_1: "Inter", sans-serif;
+$background-color-primary: #202124;
+$background-color-transparent: transparent;
+$color-green : #0c9; 
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body {
+	font-family: $font-family_1;
+	background-color: $background-color-primary;
+	color: $color-white;
+}
+.container {
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: 20px;
+	padding-left: 20px;
+	@media (min-width: 640px) {
+		max-width: 640px;
+	}
+	@media (min-width: 768px) {
+		max-width: 768px;
+	}
+	@media (min-width: 1024px) {
+		max-width: 1000px;
+	}
+}
+input {
+	padding: 12px;
+	margin: 12px 0;
+	font-family: $font-family_1;
+	background-color: $background-color-transparent;
+	color: $color-white;
+	border: 1px solid $color-gray;
+	border-radius: 4px;
+	&::placeholder {
+		color: $color-gray;
+		font-weight: bold;
+	}
+}
+textarea {
+	padding: 12px;
+	margin: 12px 0;
+	font-family: $font-family_1;
+	background-color: $background-color-transparent;
+	color: $color-white;
+	border: 1px solid $color-gray;
+	border-radius: 4px;
+	resize: none;
+	&::placeholder {
+		color: $color-gray;
+		font-weight: bold;
+	}
+}
+.note-app {
+	&__header {
+		padding: 4px 16px;
+		border-bottom: 1px solid $color-gray;
+		h1 {
+			margin: 8px 0;
+			flex: 1;
+			color: $color-white;
+		}
+		&-item {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+	&__body {
+		margin: 16px auto;
+		h2 {
+			font-weight: normal;
+			margin: 16px 0;
+		}
+		&__add-note-button{
+			width: 100%;
+			background-color: $background-color-primary;
+			border: 1px solid $color-gray;
+			cursor: pointer;
+			padding: 10px 0;
+			color: white;
+			font-size: 20px;
+			margin: 30px 0;
+			&:hover{
+				background-color: #2d2e32;
+			}
+		}
+	}
+	&__footer {
+		color: $color-white;
+		border-top: 1px solid $color-gray;
+		text-align: center;
+		margin-top: 50px;
+		padding: 30px 0 30px 0;
+		a {
+			color: $color-white;
+		}
+	}
+}
+.note-input {
+	margin: 0 auto;
+	input {
+		display: block;
+		width: 100%;
+	}
+	textarea {
+		display: block;
+		width: 100%;
+	}
+	button {
+		display: block;
+		width: 100%;
+		padding: 8px;
+		background-color: $background-color-transparent;
+		font-family: $font-family_1;
+		color: $color-white;
+		border: 1px solid $color-gray;
+		border-radius: 4px;
+		font-weight: bold;
+		cursor: pointer;
+	}
+
+	&__title {
+		font-weight: bold;
+	}
+	&__title__char-limit {
+		font-size: 14px;
+		text-align: right;
+		color: $color-gray;
+	}
+	&__body {
+		min-height: 150px;
+	}
+	&__header{
+		padding-bottom: 10px;
+		display: flex;
+		justify-content: space-between;
+		border-bottom: 1px solid $color-gray;
+		margin-bottom: 10px;
+	}
+}
+.notes-list {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: minmax(min-content, max-content);
+	gap: 16px;
+	margin-bottom: 48px;
+}
+.notes-list__empty-message {
+	text-align: center;
+	color: $color-gray;
+}
+.note-item {
+	border: 1px solid $color-gray;
+	border-radius: 4px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+.note-item__content {
+	padding: 12px;
+	flex: 1;
+}
+.note-item__title {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	margin-bottom: 4px;
+}
+.note-item__date {
+	font-size: 12px;
+	margin-bottom: 8px;
+	color: $color-gray;
+}
+.note-item__body {
+	font-size: 14px;
+	line-height: 1.5;
+    margin-top: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.note-item__action {
+	display: flex;
+}
+.note-item__delete-button {
+	display: block;
+	width: 100%;
+	background-color: $background-color-transparent;
+	border: 0;
+	border-top: 1px solid $color-gray;
+	padding: 8px 0;
+	font-family: $font-family_1;
+	font-weight: bold;
+	cursor: pointer;
+	border-right: 1px solid $color-gray;
+	color: $color-red;
+	&:hover {
+		color: $color-red-2;
+	}
+}
+.note-item__archive-button {
+	display: block;
+	width: 100%;
+	background-color: $background-color-transparent;
+	border: 0;
+	border-top: 1px solid $color-gray;
+	padding: 8px 0;
+	font-family: $font-family_1;
+	font-weight: bold;
+	cursor: pointer;
+	color: $color-yellow;
+	&:hover {
+		color: $color-orange-yellow;
+	}
+}
+@media only screen and (min-width: 500px) {
+	.notes-list {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+@media only screen and (min-width: 800px) {
+	.notes-list {
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(4, 1fr);
+	}
+	.note-search {
+		input {
+			min-width: 400px;
+		}
+	}
+}
+
+.modal {
+	&-overlay {
+		position: fixed;
+		z-index: 1;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.646);
+	}
+	&-content {
+		background-color: $background-color-primary;
+		margin: 5% auto;
+		padding: 20px;
+		border: 1px solid $color-gray; 
+		width: 90%; 
+		@media (min-width: 640px) {
+			max-width: 640px;
+		}
+		@media (min-width: 1024px) {
+			max-width: 1000px;
+		}
+	}
+	&-close {
+		color: $color-white;
+		float: right;
+		font-size: 28px;
+		cursor: pointer;
+		font-weight: bold;
+	}
+}
